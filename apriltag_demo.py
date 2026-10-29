@@ -23,8 +23,8 @@ Tag = D(families="tag36h11", nthreads=num_cores)
 # length of tag in Meters
 tag_length = 0.1778 
 # calibration distance (length of my laptop in meters)
-cal_dis = .225
-cal_txt = 'Press c when tag within 1 ft'
+cal_dis = 0.254
+cal_txt = 'Press c when tag is 10 in from camera'
 
 
 # Opens the camrea
@@ -152,9 +152,9 @@ while Running:
             p1 = tuple(corners[i])
             p2 = tuple(corners[(i + 1) % 4])
             # make line from each corner on a frame with a certain bgr and thickness
-            Color_Bank = [(100, 0, 255),(255, 0, 100)]
-            Hi_Pryor = detections.index(tag) // 1
-            cv2.line(frame, p1, p2,Color_Bank[Hi_Pryor] , line_thick)
+            # Color_Bank = [(100, 0, 255),(255, 0, 100)]
+            # Hi_Pryor = detections.index(tag) // 1
+            cv2.line(frame, p1, p2,(0,0,255), line_thick)
         
         if Calibrated:
             
